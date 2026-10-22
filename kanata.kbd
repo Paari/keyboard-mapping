@@ -1,0 +1,44 @@
+;; Kanata config — ported from my PowerToys Keyboard Manager setup.
+;;
+;; PowerToys used CapsLock as a "Hyper" key (Ctrl+Alt+Shift) and then remapped
+;; Hyper+<key> shortcuts. Kanata does this natively with a layer instead:
+;;   - Tap CapsLock  -> Esc
+;;   - Hold CapsLock -> `nav` layer (the old Hyper shortcuts)
+;;
+;; Emergency exit (physical keys): Left Ctrl + Space + Esc
+
+(defcfg
+  process-unmapped-keys yes
+  ;; `_` in non-base layers falls back to the base layer (keeps the Ctrl/Alt swap)
+  delegate-to-first-layer yes
+)
+
+(defsrc
+  tab  q    w    i    o    [    ]
+  caps a    s    d    h    j    k    l
+  n
+  lctl lalt spc  ralt
+)
+
+(defalias
+  ;; Tap = Esc; hold = nav layer (switches to hold as soon as another key is pressed)
+  cap (tap-hold-press 200 200 esc (layer-while-held nav))
+
+  prvtab C-S-tab
+  nxttab C-tab
+)
+
+(deflayer base
+  tab  q    w    i    o    [    ]
+  @cap a    s    d    h    j    k    l
+  n
+  lalt lctl spc  rctl
+)
+
+;; CapsLock held
+(deflayer nav
+  _    A-f4 up   bspc C-bspc @prvtab @nxttab
+  _    @prvtab down @nxttab left down up   rght
+  esc
+  _    _    ret  _
+)
