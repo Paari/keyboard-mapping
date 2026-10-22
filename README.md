@@ -2,28 +2,13 @@
 
 Cross-platform keyboard remapping with [Kanata](https://github.com/jtroo/kanata), ported from my Windows PowerToys Keyboard Manager setup (screenshots in [current-mapping/](./current-mapping/)).
 
-## Mapping ([kanata.kbd](./kanata.kbd))
+## Mapping
 
-| Key | Action |
-| --- | --- |
-| Tap `CapsLock` | `Esc` |
-| Hold `CapsLock` | Activates the `nav` layer (replaces the old Ctrl+Alt+Shift "Hyper" combos) |
-| Left `Alt` ↔ Left `Ctrl` | Swapped |
-| Right `Alt` | Right `Ctrl` |
+`CapsLock` is the **layer trigger**: tap it for `Esc`, hold it to activate the `nav` layer (arrows on `h j k l`, tab switching, editing keys). Left `Alt` and Left `Ctrl` are swapped, and Right `Alt` acts as `Ctrl`.
 
-While holding `CapsLock`:
-
-| Key | Action | Key | Action |
-| --- | --- | --- | --- |
-| `h` `j` `k` `l` | ← ↓ ↑ → | `w` / `s` | ↑ / ↓ |
-| `a` / `[` | Previous tab (`Ctrl+Shift+Tab`) | `d` / `]` | Next tab (`Ctrl+Tab`) |
-| `i` | `Backspace` | `o` | Delete word (`Ctrl+Backspace`) |
-| `n` | `Esc` | `q` | Close window (`Alt+F4`) |
-| `Space` | `Enter` | | |
+See **[MAPPINGS.md](./MAPPINGS.md)** for the full list, a layout diagram, and the PowerToys rule each one replaces. The config itself is [kanata.kbd](./kanata.kbd).
 
 Emergency exit while kanata is running: physical `Left Ctrl` + `Space` + `Esc`.
-
-The PowerToys `F23 → Browser Search` rule (Copilot key) is not ported.
 
 ## Linux setup
 
