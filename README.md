@@ -1,6 +1,6 @@
 # keybinding
 
-[Kanata](https://github.com/jtroo/kanata) config ported from my PowerToys Keyboard Manager setup.
+[Kanata](https://github.com/jtroo/kanata) keyboard remapping config for Linux and macOS.
 
 - Config: [kanata.kbd](./kanata.kbd)
 - Mappings: [MAPPINGS.md](./MAPPINGS.md)

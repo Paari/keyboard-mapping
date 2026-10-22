@@ -1,6 +1,6 @@
 # Mappings
 
-**Trigger** = hold `CapsLock`. It replaces the PowerToys `Ctrl+Alt+Shift` combo. Tapping `CapsLock` sends `Esc`.
+**Trigger** = hold `CapsLock`. Tapping `CapsLock` sends `Esc`.
 
 | Shortcut | Action |
 | --- | --- |

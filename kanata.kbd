@@ -1,9 +1,6 @@
-;; Kanata config — ported from my PowerToys Keyboard Manager setup.
-;;
-;; PowerToys used CapsLock as a "Hyper" key (Ctrl+Alt+Shift) and then remapped
-;; Hyper+<key> shortcuts. Kanata does this natively with a layer instead:
+;; Kanata config
 ;;   - Tap CapsLock  -> Esc
-;;   - Hold CapsLock -> `nav` layer (the old Hyper shortcuts)
+;;   - Hold CapsLock -> `nav` layer (the trigger)
 ;;
 ;; Emergency exit (physical keys): Left Ctrl + Space + Esc
 
