@@ -1,0 +1,42 @@
+;; Kanata config for macOS
+;;   - Tap CapsLock  -> Esc
+;;   - Hold CapsLock -> `nav` layer (the trigger)
+;;
+;; Emergency exit (physical keys): Left Ctrl + Space + Esc
+
+(defcfg
+  ;; Replaced locally by keyboard-config.py; never run this template directly.
+  macos-dev-names-include ("__KANATA_LOCAL_KEYBOARDS__")
+  process-unmapped-keys yes
+  delegate-to-first-layer yes
+)
+
+(defsrc
+  tab  q    w    i    o    [    ]
+  caps a    s    d    h    j    k    l
+  n
+  spc
+)
+
+(defalias
+  ;; Tap = Esc; hold = nav layer (switches to hold as soon as another key is pressed)
+  cap (tap-hold-press 200 200 esc (layer-while-held nav))
+
+  prvtab C-S-tab
+  nxttab C-tab
+)
+
+(deflayer base
+  tab  q    w    i    o    [    ]
+  @cap a    s    d    h    j    k    l
+  n
+  spc
+)
+
+;; CapsLock held
+(deflayer nav
+  _    M-w  up   bspc A-bspc @prvtab @nxttab
+  _    @prvtab down @nxttab left down up   rght
+  esc
+  ret
+)
