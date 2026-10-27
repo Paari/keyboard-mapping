@@ -12,17 +12,11 @@ PLACEHOLDER = '"__KANATA_LOCAL_KEYBOARDS__"'
 
 
 def keyboard_names(devices):
-    def usages(device):
-        return {
-            (pair.get("DeviceUsagePage"), pair.get("DeviceUsage"))
-            for pair in device.get("DeviceUsagePairs", [])
-        } | {(device.get("PrimaryUsagePage"), device.get("PrimaryUsage"))}
-
     # A shared name could register both keyboard and pointer interfaces.
     pointer_names = {
         device.get("Product")
         for device in devices
-        if usages(device) & {(1, 1), (1, 2)}
+        if (device.get("PrimaryUsagePage"), device.get("PrimaryUsage")) in {(1, 1), (1, 2)}
     }
     return sorted({
         device["Product"]

@@ -26,7 +26,7 @@ The installer installs Kanata if missing, generates and validates a local Mac co
 
 ### Keyboard selection and privacy
 
-[keyboard-config.py](./mac/keyboard-config.py) reads macOS HID usage information locally and selects devices whose primary usage is **keyboard**, not mouse/pointer. It also rejects names shared with pointer interfaces and known Karabiner/Sidecar virtual keyboards. No mouse-name exclusion is needed, and no device names, IDs, or serial numbers are stored in the repository. Selected keyboard names exist only in the generated local config at `/Library/Application Support/kanata/kanata.kbd`; do not commit or share that file or device-list output.
+[keyboard-config.py](./mac/keyboard-config.py) reads macOS HID usage information locally and selects devices whose primary usage is **keyboard**, not mouse/pointer. Secondary mouse controls on a primary keyboard (for example, firmware mouse keys) do not disqualify it. It rejects names shared with separate primary mouse/pointer interfaces and known Karabiner/Sidecar virtual keyboards. No mouse-name exclusion is needed, and no device names, IDs, or serial numbers are stored in the repository. Selected keyboard names exist only in the generated local config at `/Library/Application Support/kanata/kanata.kbd`; do not commit or share that file or device-list output.
 
 Connect any additional keyboards, then rerun `bash mac/install.sh` to detect them and restart the services. A restart alone does not refresh the generated keyboard list. Already-selected keyboard models remain configured across reboots. If no safe keyboard is connected, generation fails without replacing the existing system config.
 

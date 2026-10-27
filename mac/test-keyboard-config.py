@@ -31,11 +31,15 @@ class KeyboardConfigTests(unittest.TestCase):
             device("Keyboard"), device("Pointer", primary=2, pairs=(2, 6))
         ]), ["Keyboard"])
 
-    def test_shared_or_combined_pointer_interfaces_are_not_selected(self):
+    def test_names_shared_with_primary_pointer_interfaces_are_not_selected(self):
         self.assertEqual(config.keyboard_names([
             device("Shared"), device("Shared", primary=2),
-            device("Combined", pairs=(6, 2)),
         ]), [])
+
+    def test_primary_keyboard_with_secondary_pointer_controls_is_selected(self):
+        self.assertEqual(config.keyboard_names([
+            device("Keyboard with mouse keys", pairs=(6, 2, 1)),
+        ]), ["Keyboard with mouse keys"])
 
     def test_virtual_or_unnamed_devices_are_not_selected(self):
         self.assertEqual(config.keyboard_names([
